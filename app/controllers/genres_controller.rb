@@ -1,33 +1,33 @@
 class GenresController < ApplicationController
   
   def new
-		@artist = Artist.new
+		@genre = Genre.new
 	end
   
   def create
-    @artist = Artist.new(artist_params(:name, :bio))
-	  @artist.save
-	  redirect_to artist_path(@artist)
+    @genre = Genre.new(genre_params(:name))
+	  @genre.save
+	  redirect_to genre_path(@genre)
   end
 
   def update
-    @artist = Artist.find(params[:id])
-	  @artist.update(artist_params(:name, :bio))
-	  redirect_to artist_path(@artist)
+    @genre = Genre.find(params[:id])
+	  @genre.update(genre_params(:name))
+	  redirect_to genre_path(@genre)
   end
 
   def show
-    @artist = Artist.find(params[:id])
+    @genre = Genre.find(params[:id])
   end
   
   def edit
-	  @artist = Artist.find(params[:id])
+	  @genre = Genre.find(params[:id])
 	end
 	
   private
 	
-	def artist_params(*args)
-  params.require(:artist).permit(*args)
+	def genre_params(*args)
+  params.require(:genre).permit(*args)
   end
   
 end
