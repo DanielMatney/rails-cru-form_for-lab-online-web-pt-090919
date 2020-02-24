@@ -4,6 +4,10 @@ class SongsController < ApplicationController
 		@song = Song.new
 	end
   
+  def index
+    @songs = Song.all
+  end
+  
   def create
     @song = Song.new(song_params(:name, :bio))
 	  @song.save
