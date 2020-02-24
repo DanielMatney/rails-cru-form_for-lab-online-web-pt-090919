@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   
   def new
-		@class = SchoolClass.new
+		@artist = Artist.new
 	end
   
   def create
@@ -20,6 +20,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
   
+  def edit
+	  @artist = Artist.find(params[:id])
+	end
+	
   private
 	
 	def artist_params(*args)
